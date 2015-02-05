@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block container %}
+  <h1>Welcome to the Flask-LDAP Authentication Demo</h1>
+  {% if current_user.is_authenticated() %}
+    <h3>Hey {{ current_user.username }}!!</h3>
+    <a href="{{ url_for('auth.logout') }}">Click here to logout</a>
+  {% else %}
+  Click here to <a href="{{ url_for('auth.login') }}">login with LDAP</a>
+  {% endif %}
+{% endblock %}
